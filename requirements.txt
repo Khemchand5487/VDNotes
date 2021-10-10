@@ -1,0 +1,7 @@
+imageio
+pillow
+moviepy
+pygame
+ibm-watson==4.5.0
+pydub
+PyJWT==1.7.1
