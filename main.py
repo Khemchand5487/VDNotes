@@ -37,7 +37,7 @@ def coversion_thread():
     global translate_button, progress, thread, thread1, prograess_label, thread1, thread, count_upload
     count_upload += 1
     if not check_internet():
-        showerror("VDNotes [Made By Khemchand and Shruti]", "Please connect internet!")
+        showerror("VDNotes", "Please connect internet!")
         return
     # Label(win, text="Translation is in progress: ", font=("Verdana", 15), bg="skyblue").place(x=10, y=600)
     thread = Thread(target=conversion)
@@ -60,7 +60,7 @@ def conversion():
     try:
         respns = silence_based_conversion(r"data\\audio.wav")
     except:
-        showerror("VDNotes [Made By Khemchand and Shruti]", "There is an error try again!")
+        showerror("VDNotes", "There is an error try again!")
         translate_button.config(state=ACTIVE)
         progress['value'] = 0
         win.destroy()
@@ -74,7 +74,7 @@ def conversion():
         textfile.close()
 
     except:
-        showerror("VDNotes [Made By Khemchand and Shruti]", "There is an error try again!")
+        showerror("VDNotes ", "There is an error try again!")
         translate_button.config(state=ACTIVE)
         win.destroy()
         return 0
@@ -87,7 +87,7 @@ def conversion():
         time.sleep(0.5)
         win.update_idletasks()
     save_button.config(state=ACTIVE)
-    showinfo("VDNotes [Made By Khemchand and Shruti]", "Translation done, now you can save your notes.")
+    showinfo("VDNotes", "Translation done, now you can save your notes.")
     language_entry.delete(0, END)
     prograess_label.destroy()
     progress.destroy()
@@ -109,9 +109,9 @@ def file_save():
             f.write(i)
         f.close()
         text2save.close()
-        showinfo("VDNotes [Made By Khemchand and Shruti]", "Notes are successfully saved.")
+        showinfo("VDNotes", "Notes are successfully saved.")
     except:
-        showerror("VDNotes [Made By Khemchand and Shruti]", "There is an error. Try again...")
+        showerror("VDNotes", "There is an error. Try again...")
 
 
 def progress_bar():
@@ -168,7 +168,7 @@ def upload():
         progress['value'] = 0
         win.update_idletasks()
         if thread1.is_alive() or thread.is_alive():
-            showerror("VDNotes [Made By Khemchand and Shruti]", "There is another translation running, Please wait...")
+            showerror("VDNotes", "There is another translation running, Please wait...")
             upload_button.config(state=ACTIVE, text="Upload")
             return
         else:
@@ -227,7 +227,7 @@ def video_frame(path):
 win = Tk()
 win.geometry('850x650')
 win.iconbitmap("data\\logo.ico")
-win.title("VDNotes [Made By Khemchand and Shruti]")
+win.title("VDNotes")
 win.resizable(0, 0)
 win['bg'] = "skyblue"
 
